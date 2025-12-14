@@ -12,7 +12,7 @@ function App() {
 
   const fetchTodos = async () => {
     try {
-      const res = await fetch('http://localhost:3006/todos');
+      const res = await fetch('https://todo-backend-3-yldx.onrender.com/todos');
       const data = await res.json();
       setTodos(data);
       setLoading(false);
@@ -26,7 +26,7 @@ function App() {
     if (!text.trim()) return;
     
     try {
-      const res = await fetch('http://localhost:3006/todos', {
+      const res = await fetch('https://todo-backend-3-yldx.onrender.com/todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text })
@@ -41,7 +41,7 @@ function App() {
 
   const toggleTodo = async (id, completed) => {
     try {
-      const res = await fetch(`http://localhost:3006/todos/${id}`, {
+      const res = await fetch(`https://todo-backend-3-yldx.onrender.com/todos/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: !completed })
